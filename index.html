@@ -101,16 +101,18 @@
                 </div>
             </div>
 
-            <!-- Bibliografía Base (E-Book) -->
+           <!-- Bibliografía Base (E-Book) -->
             <div class="bg-slate-800/80 border border-slate-700 rounded-2xl shadow-xl p-8 flex flex-col sm:flex-row gap-6 items-center text-center sm:text-left">
-                <img src="Español.png" alt="El e-book de un avalúo inmobiliario" class="w-32 md:w-40 object-contain shadow-lg rounded">
+                <!-- Se cambió Español.png a Espanol.png -->
+                <img src="Espanol.png" alt="El e-book de un avalúo inmobiliario" class="w-32 md:w-40 object-contain shadow-lg rounded">
                 <div class="flex flex-col justify-center w-full">
                     <span class="text-amber-400 text-xs font-bold uppercase tracking-wider mb-2"><i class="fa-solid fa-book mr-1"></i> Texto Guía del Curso</span>
                     <h2 class="text-xl font-bold text-white mb-3">El e-book de un avalúo inmobiliario</h2>
                     <p class="text-slate-300 text-sm leading-relaxed mb-4">
                         Material didáctico fundamental que acompaña el desarrollo teórico y práctico del modelado econométrico y la inferencia estadística aplicados a la valuación.
                     </p>
-                    <button onclick="abrirDocumento('MCEMebook2022español.pdf', 'El e-book de un avalúo inmobiliario')" class="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2 rounded font-bold shadow text-sm transition self-center sm:self-start w-full sm:w-auto">
+                    <!-- Se cambió MCEMebook2022español.pdf a MCEMebook2022espanol.pdf -->
+                    <button onclick="abrirDocumento('MCEMebook2022espanol.pdf', 'El e-book de un avalúo inmobiliario')" class="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2 rounded font-bold shadow text-sm transition self-center sm:self-start w-full sm:w-auto">
                         <i class="fa-solid fa-book-open mr-2"></i>Leer E-book
                     </button>
                 </div>
@@ -133,7 +135,9 @@
                     </div>
                     <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 icono-flecha"></i>
                 </summary>
-                <div class="p-4 bg-slate-900/50 border-t border-slate-700 flex flex-col gap-2 max-h-[400px] overflow-y-auto">
+                
+                <!-- Se eliminó el límite de altura para mostrar toda la lista -->
+                <div class="p-4 bg-slate-900/50 border-t border-slate-700 flex flex-col gap-2">
                     <button onclick="abrirDocumento('Programación Curso.pdf', 'Programación del Curso')" class="flex items-center gap-3 p-3 bg-slate-700 hover:bg-blue-900/60 border border-slate-600 rounded-lg transition text-left w-full font-bold"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Programación General</span></button>
                     <hr class="border-slate-700 my-1">
                     <button onclick="abrirDocumento('CursoIEAI-Sesion inicial.pdf', 'Sesión Inicial')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión Inicial</span></button>
@@ -150,9 +154,9 @@
                     <button onclick="abrirDocumento('CursoIEAI-Sesión N° 11.pdf', 'Sesión N° 11')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 11</span></button>
                     <button onclick="abrirDocumento('CursoIEAI-Sesión N° 12.pdf', 'Sesión N° 12')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 12</span></button>
                 </div>
-            </details>
+            </details>           
 
-            <!-- Acordeón: NORMATIVAS -->
+           <!-- Acordeón: NORMATIVAS -->
             <details class="bg-slate-800/80 border border-slate-700 rounded-xl shadow-lg overflow-hidden group h-fit">
                 <summary class="flex justify-between items-center p-5 cursor-pointer bg-slate-800 hover:bg-slate-700 transition">
                     <div class="flex items-center gap-4">
@@ -161,11 +165,19 @@
                     </div>
                     <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 icono-flecha"></i>
                 </summary>
-                <div class="p-4 bg-slate-900/50 border-t border-slate-700 flex flex-col gap-2 max-h-[400px] overflow-y-auto">
+                
+                <!-- Eliminado el límite de altura -->
+                <div class="p-4 bg-slate-900/50 border-t border-slate-700 flex flex-col gap-2">
                     <button onclick="abrirDocumento('IVS 2025.pdf', 'IVS 2025')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-indigo-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-indigo-400 text-xl"></i><span class="text-sm">IVS 2025</span></button>
+                    
                     <button onclick="abrirDocumento('IPMS.pdf', 'IPMS')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-indigo-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-indigo-400 text-xl"></i><span class="text-sm">IPMS (Medición)</span></button>
+                    
+                    <!-- Restaurados los estilos y ajustado el nombre exacto del archivo Parte 1 -->
                     <button onclick="abrirDocumento('Parte 1 - NBR 14653.pdf', 'Parte 1 - NBR 14653')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-indigo-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-indigo-400 text-xl"></i><span class="text-sm">Parte 1 - NBR 14653</span></button>
-                    <button onclick="abrirDocumento('Parte 2 - NBR 14653.pdf', 'Parte 2 - NBR 14653')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-indigo-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-indigo-400 text-xl"></i><span class="text-sm">Parte 2 - NBR 14653</span></button>
+                    
+                    <!-- Restaurados los estilos y ajustado el nombre exacto del archivo Parte 2 (sin espacio después del guion) -->
+                    <button onclick="abrirDocumento('Parte 2 -NBR 14653.pdf', 'Parte 2 - NBR 14653')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-indigo-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-indigo-400 text-xl"></i><span class="text-sm">Parte 2 - NBR 14653</span></button>
+                    
                     <button onclick="abrirDocumento('BOE-A-2003-7253.pdf', 'BOE-A-2003-7253')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-indigo-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-indigo-400 text-xl"></i><span class="text-sm">BOE-A-2003-7253</span></button>
                 </div>
             </details>
