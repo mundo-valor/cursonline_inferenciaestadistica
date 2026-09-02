@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso: Interpretaciones estadísticas en los avalúos inmobiliarios</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Desactivar flechas del details nativo */
+        details > summary { list-style: none; outline: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: slideDown 0.3s ease-in-out; }
+        @keyframes slideDown {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        details[open] summary .icono-flecha { transform: rotate(180deg); }
+        
+        /* Protección básica anti-clic derecho */
+        .no-select { user-select: none; -webkit-user-select: none; }
+
+        /* Estilo general scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+    </style>
+</head>
+<body class="text-slate-200 font-sans antialiased min-h-screen relative pb-20 no-select" oncontextmenu="return false;">
+
+    <!-- FONDOS CON TRATAMIENTO DE VISIBILIDAD -->
+    <div class="fixed inset-0 z-[-2] bg-slate-900"></div>
+    <div class="fixed inset-0 z-[-1] bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 opacity-90"></div>
+
+    <!-- NAVEGACIÓN SUPERIOR CON LOGOS Y BOTONES -->
+    <nav class="w-full bg-slate-900/80 border-b border-slate-700 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
+            <!-- Logo Izquierdo -->
+            <img src="LogoMCE_2.png" alt="Miguel Camacaro Ediciones" class="h-14 md:h-16 object-contain bg-white rounded-lg p-1 drop-shadow-md">
+            
+            <!-- Botones de Navegación -->
+            <div class="flex items-center gap-4 md:gap-6 flex-wrap justify-center text-sm md:text-base font-semibold">
+                <a href="#presentacion" class="text-slate-300 hover:text-white transition">Presentación</a>
+                <a href="#autor" class="text-slate-300 hover:text-white transition">Autor</a>
+                <a href="#programa" class="text-slate-300 hover:text-white transition">Programa</a>
+                <a href="#videoteca" class="text-slate-300 hover:text-white transition">Videoteca</a>
+                <a href="https://paypal.me/spilimcurso" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-lg shadow-lg transition transform hover:-translate-y-0.5 border border-blue-400">
+                    <i class="fa-brands fa-paypal mr-2"></i>Donar
+                </a>
+            </div>
+
+            <!-- Logo Derecho -->
+            <img src="Valuador Inteligente.png" alt="Valuador Inteligente" class="h-14 md:h-16 object-contain drop-shadow-md">
+        </div>
+    </nav>
+
+    <!-- ENCABEZADO / HERO SECTION -->
+    <header id="presentacion" class="max-w-6xl mx-auto px-4 py-12 md:py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div class="text-center lg:text-left">
+                <span class="inline-block bg-emerald-600 text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 shadow-sm">
+                    Curso Internacional On Line
+                </span>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                    Interpretaciones estadísticas <br> <span class="text-emerald-400">en los avalúos inmobiliarios</span>
+                </h1>
+                <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+                    Aprende a aplicar la metodología científica y la econometría (Modelos de Regresión Lineal) para la estimación de valores inmobiliarios, fundamentado en las normas IVS 2025 y ABNT NBR 14653.
+                </p>
+                <div class="flex gap-4 justify-center lg:justify-start">
+                    <a href="#programa" class="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-lg font-bold shadow-lg transition">Ver Programa</a>
+                    <a href="https://goo.su/VMerhB" target="_blank" class="bg-slate-700 hover:bg-slate-600 border border-slate-500 text-white px-6 py-3 rounded-lg font-bold shadow-lg transition"><i class="fa-solid fa-laptop-code mr-2"></i>Software SisDEA</a>
+                </div>
+            </div>
+            
+            <!-- Imagen Promocional -->
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                <img src="Promoción curso.jpg" alt="Promoción del Curso" class="w-full h-auto object-cover">
+            </div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN DEL AUTOR Y LIBRO -->
+    <section id="autor" class="max-w-6xl mx-auto px-4 mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Perfil del Profesor -->
+            <div class="bg-slate-800/80 border border-slate-700 rounded-2xl shadow-xl p-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left">
+                <img src="Informal 3.png" alt="Miguel Camacaro Pérez" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-lg border-4 border-slate-600">
+                <div>
+                    <h2 class="text-2xl font-bold text-white mb-1">Ing. Miguel Camacaro Pérez</h2>
+                    <h3 class="text-emerald-400 font-semibold mb-4 text-sm">Autor y Profesor del Curso</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-3">
+                        Ingeniero Civil (ULA), M.Sc. en Gerencia de la Construcción (UCLA-Univ. of Florida) y Especialista en Valuación de Activos con más de 40 años de experiencia.
+                    </p>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Pionero internacional en la integración de Ciencia de la Valuación, Ciencia de Datos, Inferencia Estadística e Inteligencia Artificial Generativa.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bibliografía Base (E-Book) -->
+            <div class="bg-slate-800/80 border border-slate-700 rounded-2xl shadow-xl p-8 flex flex-col sm:flex-row gap-6 items-center text-center sm:text-left">
+                <img src="Español.png" alt="El e-book de un avalúo inmobiliario" class="w-32 md:w-40 object-contain shadow-lg rounded">
+                <div class="flex flex-col justify-center w-full">
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-wider mb-2"><i class="fa-solid fa-book mr-1"></i> Texto Guía del Curso</span>
+                    <h2 class="text-xl font-bold text-white mb-3">El e-book de un avalúo inmobiliario</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                        Material didáctico fundamental que acompaña el desarrollo teórico y práctico del modelado econométrico y la inferencia estadística aplicados a la valuación.
+                    </p>
+                    <button onclick="abrirDocumento('MCEMebook2022español.pdf', 'El e-book de un avalúo inmobiliario')" class="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2 rounded font-bold shadow text-sm transition self-center sm:self-start w-full sm:w-auto">
+                        <i class="fa-solid fa-book-open mr-2"></i>Leer E-book
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMA DEL CURSO (ACORDEONES) -->
+    <section id="programa" class="max-w-6xl mx-auto px-4 mb-20 scroll-mt-24">
+        <h2 class="text-3xl font-bold text-white mb-8 text-center"><i class="fa-solid fa-layer-group text-emerald-500 mr-3"></i>Contenido Programático</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Acordeón: CLASES -->
+            <details class="bg-slate-800/80 border border-slate-700 rounded-xl shadow-lg overflow-hidden group h-fit">
+                <summary class="flex justify-between items-center p-5 cursor-pointer bg-slate-800 hover:bg-slate-700 transition">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-blue-900/50 text-blue-400 w-10 h-10 rounded-lg flex items-center justify-center text-lg"><i class="fa-solid fa-person-chalkboard"></i></div>
+                        <h3 class="text-lg font-bold text-white">Sesiones de Clase</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 icono-flecha"></i>
+                </summary>
+                <div class="p-4 bg-slate-900/50 border-t border-slate-700 flex flex-col gap-2 max-h-[400px] overflow-y-auto">
+                    <button onclick="abrirDocumento('Programación Curso.pdf', 'Programación del Curso')" class="flex items-center gap-3 p-3 bg-slate-700 hover:bg-blue-900/60 border border-slate-600 rounded-lg transition text-left w-full font-bold"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Programación General</span></button>
+                    <hr class="border-slate-700 my-1">
+                    <button onclick="abrirDocumento('CursoIEAI-Sesion inicial.pdf', 'Sesión Inicial')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión Inicial</span></button>
+                    <button onclick="abrirDocumento('CursoIEAI-Sesión N° 1.pdf', 'Sesión N° 1')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 1</span></button>
+                    <button onclick="abrirDocumento('CursoIEAI-Sesión N° 2.pdf', 'Sesión N° 2')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 2</span></button>
+                    <button onclick="abrirDocumento('CursoIEAI-Sesión N° 3.pdf', 'Sesión N° 3')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 3</span></button>
+                    <button onclick="abrirDocumento('CursoIEAI-Sesión N° 4.pdf', 'Sesión N° 4')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 4</span></button>
+                    <button onclick="abrirDocumento('CursoIEAI-Sesión N° 5.pdf', 'Sesión N° 5')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 5</span></button>
+                    <button onclick="abrirDocumento('CursoIEAI-Sesión N° 6.pdf', 'Sesión N° 6')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 6</span></button>
+                    <button onclick="abrirDocumento('CursoIEAI-Sesión N° 7.pdf', 'Sesión N° 7')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 7</span></button>
+                    <button onclick="abrirDocumento('CursoIEAI-Sesión N° 8.pdf', 'Sesión N° 8')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 8</span></button>
+                    <button onclick="abrirDocumento('CursoIEAI-Sesión N° 9.pdf', 'Sesión N° 9')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 9</span></button>
+                    <button onclick="abrirDocumento('CursoIEAI-Sesión N° 10.pdf', 'Sesión N° 10')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 10</span></button>
+                    <button onclick="abrirDocumento('CursoIEAI-Sesión N° 11.pdf', 'Sesión N° 11')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 11</span></button>
+                    <button onclick="abrirDocumento('CursoIEAI-Sesión N° 12.pdf', 'Sesión N° 12')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-blue-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-blue-400 text-xl"></i><span class="text-sm">Sesión N° 12</span></button>
+                </div>
+            </details>
+
+            <!-- Acordeón: NORMATIVAS -->
+            <details class="bg-slate-800/80 border border-slate-700 rounded-xl shadow-lg overflow-hidden group h-fit">
+                <summary class="flex justify-between items-center p-5 cursor-pointer bg-slate-800 hover:bg-slate-700 transition">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-indigo-900/50 text-indigo-400 w-10 h-10 rounded-lg flex items-center justify-center text-lg"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <h3 class="text-lg font-bold text-white">Normativas</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 icono-flecha"></i>
+                </summary>
+                <div class="p-4 bg-slate-900/50 border-t border-slate-700 flex flex-col gap-2 max-h-[400px] overflow-y-auto">
+                    <button onclick="abrirDocumento('IVS 2025.pdf', 'IVS 2025')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-indigo-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-indigo-400 text-xl"></i><span class="text-sm">IVS 2025</span></button>
+                    <button onclick="abrirDocumento('IPMS.pdf', 'IPMS')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-indigo-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-indigo-400 text-xl"></i><span class="text-sm">IPMS (Medición)</span></button>
+                    <button onclick="abrirDocumento('Parte 1 - NBR 14653.pdf', 'Parte 1 - NBR 14653')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-indigo-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-indigo-400 text-xl"></i><span class="text-sm">Parte 1 - NBR 14653</span></button>
+                    <button onclick="abrirDocumento('Parte 2 - NBR 14653.pdf', 'Parte 2 - NBR 14653')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-indigo-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-indigo-400 text-xl"></i><span class="text-sm">Parte 2 - NBR 14653</span></button>
+                    <button onclick="abrirDocumento('BOE-A-2003-7253.pdf', 'BOE-A-2003-7253')" class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-indigo-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-file-pdf text-indigo-400 text-xl"></i><span class="text-sm">BOE-A-2003-7253</span></button>
+                </div>
+            </details>
+
+            <!-- Acordeón: EJERCICIOS -->
+            <details class="bg-slate-800/80 border border-slate-700 rounded-xl shadow-lg overflow-hidden group h-fit lg:col-span-1 md:col-span-2">
+                <summary class="flex justify-between items-center p-5 cursor-pointer bg-slate-800 hover:bg-slate-700 transition">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-emerald-900/50 text-emerald-400 w-10 h-10 rounded-lg flex items-center justify-center text-lg"><i class="fa-solid fa-file-excel"></i></div>
+                        <h3 class="text-lg font-bold text-white">Ejercicios Prácticos</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 icono-flecha"></i>
+                </summary>
+                <div class="p-4 bg-slate-900/50 border-t border-slate-700 flex flex-col gap-2 max-h-[400px] overflow-y-auto">
+                    <p class="text-xs text-slate-400 mb-2 px-1">Haz clic para descargar las hojas de cálculo (.xlsx)</p>
+                    <a href="0. Ejercicio.xlsx" download class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-emerald-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-download text-emerald-400"></i><span class="text-sm">0. Ejercicio</span></a>
+                    <a href="1. Ejercicio.xlsx" download class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-emerald-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-download text-emerald-400"></i><span class="text-sm">1. Ejercicio</span></a>
+                    <a href="2. Ejercicio.xlsx" download class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-emerald-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-download text-emerald-400"></i><span class="text-sm">2. Ejercicio</span></a>
+                    <a href="3. Ejercicio.xlsx" download class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-emerald-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-download text-emerald-400"></i><span class="text-sm">3. Ejercicio</span></a>
+                    <a href="4. Ejercicio.xlsx" download class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-emerald-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-download text-emerald-400"></i><span class="text-sm">4. Ejercicio</span></a>
+                    <a href="5. Ejercicio.xlsx" download class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-emerald-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-download text-emerald-400"></i><span class="text-sm">5. Ejercicio</span></a>
+                    <a href="6. Ejercicio.xlsx" download class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-emerald-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-download text-emerald-400"></i><span class="text-sm">6. Ejercicio</span></a>
+                    <a href="7. Ejercicio.xlsx" download class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-emerald-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-download text-emerald-400"></i><span class="text-sm">7. Ejercicio</span></a>
+                    <a href="8. Ejercicio.xlsx" download class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-emerald-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-download text-emerald-400"></i><span class="text-sm">8. Ejercicio</span></a>
+                    <a href="9. Ejercicio.xlsx" download class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-emerald-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-download text-emerald-400"></i><span class="text-sm">9. Ejercicio</span></a>
+                    <a href="10. Ejercicio.xlsx" download class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-emerald-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-download text-emerald-400"></i><span class="text-sm">10. Ejercicio</span></a>
+                    <a href="11. Ejercicio.xlsx" download class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-emerald-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-download text-emerald-400"></i><span class="text-sm">11. Ejercicio</span></a>
+                    <a href="12-13. Ejercicio.xlsx" download class="flex items-center gap-3 p-3 bg-slate-800 hover:bg-emerald-900/60 border border-slate-700 rounded-lg transition text-left w-full"><i class="fa-solid fa-download text-emerald-400"></i><span class="text-sm">12-13. Ejercicio</span></a>
+                </div>
+            </details>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN VIDEOTECA COMPLETA -->
+    <section id="videoteca" class="max-w-6xl mx-auto px-4 mb-20 scroll-mt-24">
+        <div class="bg-slate-800/80 border border-slate-700 rounded-2xl shadow-xl p-8 md:p-10">
+            <h2 class="text-3xl font-bold text-white mb-8 border-b border-slate-700 pb-4 flex items-center">
+                <i class="fa-brands fa-youtube text-red-500 mr-4 text-4xl"></i> Videoteca y Podcasts del Curso
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 max-h-[600px] overflow-y-auto pr-4">
+                <!-- VÍDEOS -->
+                <a href="https://youtu.be/aTGk67a4fn4" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">La Historia de la Estadística</span></a>
+                <a href="https://youtu.be/TbAKrEsPVQ8" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">La escuela que llegó para quedarse</span></a>
+                <a href="https://youtu.be/PNH9aCUKxiA" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Normas Internacionales de Valuación</span></a>
+                <a href="https://youtu.be/JTHAKw4Mkik" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Importancia de la base de datos en los avalúos</span></a>
+                <a href="https://youtu.be/VUNkwDn0a0g" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">ABNT NBR 14653-1:2019 Alcance y actividades básicas</span></a>
+                <a href="https://youtu.be/7XhKXsNZ4XQ" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Econometría y el modelo de regresión lineal (MRL)</span></a>
+                <a href="https://youtu.be/ZB-jV6_iDLA" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Variable: concepto, clasificación y ejemplos</span></a>
+                <a href="https://youtu.be/E4IW21IxnEY" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">De la simulación - Regresión de Mínimos Cuadrados</span></a>
+                <a href="https://youtu.be/icQfEjBcCDE" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Estimadores poblacionales de un MRL usando MCO</span></a>
+                <a href="https://youtu.be/TCk-vCCR3Os" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Sobre los grados de libertad</span></a>
+                <a href="https://youtu.be/KcVcGj-wPUM" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">ABNT NBR 14653 Parte 1 y 2 Metodología y procedimientos</span></a>
+                <a href="https://youtu.be/5Q-uH55o8Xw" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">De la linealidad en los modelos de regresión</span></a>
+                <a href="https://youtu.be/GDRpSOJsRYQ" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Números reales, perturbación aleatoria y variabilidad</span></a>
+                <a href="https://youtu.be/5wAayDbj-lY" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">ABNT NBR 14653 Parte 1 y 2 Método Comparativo</span></a>
+                <a href="https://youtu.be/Xwp5uVH9jZM" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Prueba de significancia del parámetro en un MRLM</span></a>
+                <a href="https://youtu.be/WLlH8p4YHYE" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Prueba de significancia global del MRLM</span></a>
+                <a href="https://youtu.be/Rpfw2LMjgeg" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">NIV105 Enfoques de valuación y métodos</span></a>
+                <a href="https://youtu.be/Fw8tTi8peDY" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Simulación en el Teorema del Límite Central</span></a>
+                <a href="https://youtu.be/qS1bHBL0NV4" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Normalidad de errores en un MRLM Parte I</span></a>
+                <a href="https://youtu.be/3tiGCVVCUCw" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Normalidad de errores en un MRLM Parte II</span></a>
+                <a href="https://youtu.be/XC6No2Mf5P8" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">ABNT NBR 14653 Campo de Arbitrio y Grados</span></a>
+                <a href="https://youtu.be/QNZ-wBN0RBE" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Mitos y realidades de la Inferencia - Parte I</span></a>
+                <a href="https://youtu.be/IFvm4LS6ZSU" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Mitos y realidades de la Inferencia - Parte II</span></a>
+                <a href="https://youtu.be/XVYdmW1wAKc" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Homocedasticidad en los errores del MRL</span></a>
+                <a href="https://youtu.be/oTg8ITAqJqo" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Tomando las medidas en serio - Parte I</span></a>
+                <a href="https://youtu.be/WJiP7TmkOe0" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Supuesto básico sobre la micronumerosidad</span></a>
+                <a href="https://youtu.be/-Ar_8s0Upyo" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Multicolinealidad en las variables - Parte I</span></a>
+                <a href="https://youtu.be/MO2EOfVLaBY" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Multicolinealidad en las variables - Parte II</span></a>
+                <a href="https://youtu.be/8Q3mx5Ffa9U" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Modelo de Valuación Automatizado (AVM) y las NIV</span></a>
+                <a href="https://youtu.be/ep5sS6e_75E" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">AVMs RICS inside paper April 2022</span></a>
+                <a href="https://youtu.be/kTq2Zr43yiE" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Tomando las medidas en serio - Parte II</span></a>
+                <a href="https://youtu.be/4G-0UY5yCnY" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">De los puntos importantes del MRLM</span></a>
+                <a href="https://youtu.be/12NbIcqTinY" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">ABNT NBR 14653 Grados de Fundamentación</span></a>
+                <a href="https://youtu.be/8Mxf1dzcP84" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Mitos y realidades de la Inferencia - Parte III</span></a>
+                <a href="https://youtu.be/Ky_ObrbU1b4" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Errores de especificación en un MRLM</span></a>
+                <a href="https://youtu.be/j0-jG-T5IS8" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Interpretación de la ecuación de estimación</span></a>
+                <a href="https://youtu.be/9STLPFQO0Rs" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">La Ciencia de Datos y la Valuación Inmobiliaria</span></a>
+                <a href="https://youtu.be/3--vKlDOODY" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Estimación puntual y por intervalo en los avalúos</span></a>
+                <a href="https://youtu.be/GYaaYkifXsY" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Del modelo de regresión lineal múltiple (MRLM)</span></a>
+                <a href="https://youtu.be/VZo3V8rScz0" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Del análisis estadístico en la Ciencia de Datos</span></a>
+                <a href="https://youtu.be/o7iSQ0WbEcA" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">¿Depreciación o Desvalorización? - Parte VI</span></a>
+                <a href="https://youtu.be/Fv52yVBFnFc" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Grados de fundamentación y precisión en los avalúos</span></a>
+                <a href="https://youtu.be/cb_OBKHrEjY" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Mosaico de resultados de un MRLM</span></a>
+                <a href="https://youtu.be/R6LvklbGKcU" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Curso SisDEA: potencia sus conocimientos</span></a>
+                <a href="https://youtu.be/jRt7DgM8pko" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Un modelo de Regresión Lineal usando SisDEA</span></a>
+                <a href="https://youtu.be/0CM7-tFvVLg" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Base inteligente de datos de libre acceso</span></a>
+                <a href="https://youtu.be/tJ__Tanpw30" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Una base de datos libre para los tasadores</span></a>
+                <a href="https://youtu.be/Ok6cCbkcaVg" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Base de datos: tratamiento científico</span></a>
+                <a href="https://youtu.be/v6Aib6mLoDI" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-circle-play text-red-500 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Encuentro participativo: Estadística en la valuación</span></a>
+
+                <!-- PODCASTS -->
+                <a href="https://youtu.be/ZY0JZJSHXKA" target="_blank" class="flex items-start gap-3 hover:bg-slate-700 p-2 rounded transition"><i class="fa-solid fa-microphone-lines text-blue-400 mt-1"></i><span class="text-sm font-medium text-slate-300 hover:text-white">Podcast: Valuación inmobiliaria usando el SISDEA</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="w-full bg-slate-900 border-t border-slate-700 py-8 text-center relative z-10">
+        <p class="text-slate-400 font-medium text-sm mb-4">
+            &copy; 2026 Miguel Camacaro Ediciones. Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- VISOR MODAL INDIVIDUAL (PANTALLA COMPLETA) -->
+    <!-- ========================================== -->
+    <div id="visor-modal" class="fixed inset-0 z-50 bg-slate-900/95 hidden flex-col transition-opacity duration-300">
+        <!-- Cabecera del visor -->
+        <div class="flex justify-between items-center px-6 py-4 bg-slate-800 border-b border-slate-700 shadow-lg">
+            <h3 id="visor-titulo" class="text-white font-bold text-lg md:text-xl flex items-center">
+                <i class="fa-solid fa-file-pdf text-emerald-400 mr-3"></i> <span>Documento</span>
+            </h3>
+            <button onclick="cerrarVisorModal()" class="text-slate-400 hover:text-red-500 transition focus:outline-none" title="Cerrar Visor">
+                <i class="fa-solid fa-xmark text-3xl"></i>
+            </button>
+        </div>
+        <!-- Contenedor del Iframe -->
+        <div class="flex-1 w-full h-full relative bg-slate-800 p-2 md:p-6">
+            <iframe id="visor-iframe" class="w-full h-full rounded shadow-2xl bg-white" src="" title="Visor de PDF"></iframe>
+        </div>
+    </div>
+
+    <!-- SCRIPT DEL VISOR MODAL -->
+    <script>
+        const modal = document.getElementById('visor-modal');
+        const iframe = document.getElementById('visor-iframe');
+        const titulo = document.querySelector('#visor-titulo span');
+
+        function abrirDocumento(rutaArchivo, nombreDocumento) {
+            titulo.innerText = nombreDocumento;
+            iframe.src = rutaArchivo + "#toolbar=0&navpanes=0&scrollbar=0";
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function cerrarVisorModal() {
+            iframe.src = "about:blank";
+            titulo.innerText = "Documento";
+            
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            
+            document.body.style.overflow = 'auto'; 
+        }
+    </script>
+</body>
+</html>
